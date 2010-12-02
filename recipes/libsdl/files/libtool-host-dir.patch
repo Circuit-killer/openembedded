@@ -1,0 +1,16 @@
+Stop Libtool from trying to relink against host libraries during install
+operations by using the -L/usr/lib option. Same as part of Libtool recipe's
+libtool-2.2.6b/cross_compile.patch.
+Index: SDL-1.2.14/build-scripts/ltmain.sh
+===================================================================
+--- SDL-1.2.14.orig/build-scripts/ltmain.sh
++++ SDL-1.2.14/build-scripts/ltmain.sh
+@@ -5785,8 +5790,6 @@ func_mode_link ()
+ 		add="$libdir/$linklib"
+ 	      fi
+ 	    else
+-	      # We cannot seem to hardcode it, guess we'll fake it.
+-	      add_dir="-L$libdir"
+ 	      # Try looking first in the location we're being installed to.
+ 	      if test -n "$inst_prefix_dir"; then
+ 		case $libdir in
