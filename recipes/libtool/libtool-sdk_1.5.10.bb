@@ -7,7 +7,6 @@ SRC_URI_append = " file://rpath-control.patch \
                    file://prefix.patch \
                    file://tag.patch \
                    file://install-path-check.patch \
-                   file://nousrlib.patch \
                    file://add_sysroot_function.patch \
                    "
 

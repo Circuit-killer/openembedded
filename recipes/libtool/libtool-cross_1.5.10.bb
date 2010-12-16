@@ -9,7 +9,7 @@ SRC_URI_append = " file://rpath-control.patch \
                    file://tag.patch \
                    file://install-path-check.patch \
 		   file://nmedit_fix.patch \
-		   file://nousrlib.patch"
+"
 
 S = "${WORKDIR}/libtool-${PV}"
 

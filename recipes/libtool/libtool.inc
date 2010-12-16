@@ -19,8 +19,8 @@ SRC_URI = "${GNU_MIRROR}/libtool/libtool-${PV}.tar.gz \
 	   file://prefix-manpage-fix.patch \
 	   file://rename-with-sysroot.patch \
 	   file://resolve-sysroot.patch \
-	   file://use-sysroot-in-libpath.patch \
 	   file://fix-final-rpath.patch \
+	   file://inst-prefix-only.patch \
           "
 do_configure_prepend () {
 	if ${@['true', 'false'][bb.data.inherits_class('native', d) or bb.data.inherits_class('sdk', d) or (bb.data.getVar('PN', d, 1) == 'libtool-cross')]}
