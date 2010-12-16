@@ -14,7 +14,7 @@ SRC_URI = " \
   http://www.libsdl.org/release/SDL-${PV}.tar.gz \
   file://sdl_bug_894_fix.patch \
   file://sdl.m4 \
-  file://libtool-host-dir.patch \
+  file://libtool-inst-prefix-only.patch \
 "
 
 S = "${WORKDIR}/SDL-${PV}"

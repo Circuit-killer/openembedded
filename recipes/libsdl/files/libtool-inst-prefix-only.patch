@@ -1,7 +1,11 @@
-Don't search host directory during "relink" if $inst_prefix is provided
---- libtool-1.5.10.orig/ltmain.in
-+++ libtool-1.5.10/ltmain.in
-@@ -2638,12 +2638,14 @@
+Don't search host directory during "relink" if $inst_prefix is provided.
+Taken from Libtool recipe's patches, for instance libtool-2.4/inst-prefix-
+only.patch.
+Index: SDL-1.2.14/build-scripts/ltmain.sh
+===================================================================
+--- SDL-1.2.14.orig/build-scripts/ltmain.sh
++++ SDL-1.2.14/build-scripts/ltmain.sh
+@@ -5786,12 +5791,14 @@ func_mode_link ()
  	      fi
  	    else
  	      # We cannot seem to hardcode it, guess we'll fake it.

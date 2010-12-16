@@ -25,15 +25,24 @@ Index: libtool-2.2.2/libltdl/config/ltmain.m4sh
  	  fi
  	  test "X$hardcode_automatic" = Xyes && avoidtemprpath=yes
  	else
-@@ -4825,8 +4831,6 @@
- 		add="$libdir/$linklib"
+@@ -4826,12 +4832,14 @@
  	      fi
  	    else
--	      # We cannot seem to hardcode it, guess we'll fake it.
+ 	      # We cannot seem to hardcode it, guess we'll fake it.
 -	      add_dir="-L$libdir"
- 	      # Try looking first in the location we're being installed to.
+-	      # Try looking first in the location we're being installed to.
++	      
++	      # Default if $libdir is not relative to the prefix:
++	      add_dir="-L$libdir"
++	      
  	      if test -n "$inst_prefix_dir"; then
- 		case $libdir in
+ 		case "$libdir" in
+                   [\\/]*)
+-                    add_dir="$add_dir -L$inst_prefix_dir$libdir"
++                    add_dir="-L$inst_prefix_dir$libdir"
+                     ;;
+                 esac
+               fi
 @@ -4972,7 +4976,17 @@
  		  fi
  		  ;;
