@@ -19,6 +19,9 @@ inherit autotools binconfig
 # Older internal Libtool doesn't work with lib-path.patch (below)
 EXTRA_OEMAKE += "LIBTOOL='${HOST_SYS}-libtool'"
 
+# The Make files seem to overwrite LDFLAGS with the contents of LADD
+EXTRA_OEMAKE += "LADD='${LDFLAGS}'"
+
 do_configure () {
 	gnu-configize
         oe_runconf
