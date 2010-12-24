@@ -7,7 +7,9 @@ PR = "r5"
 SRC_URI = "${APACHE_MIRROR}/apr/${P}.tar.bz2;name=apr135tarbz2 \
            file://configure_fixes.patch \
 	   file://cleanup.patch \
-           file://configfix.patch"
+           file://configfix.patch \
+           file://libtool-detect.patch;striplevel=0 \
+"
 
 inherit autotools lib_package binconfig
 
@@ -17,6 +19,12 @@ do_configure_prepend() {
 	cd ${S}
 	./buildconf
 }
+
+# The buildconf script tries to change build/libtool.m4 to use the apr_
+# builddir Make variable instead of top_builddir, but it's not working very
+# well. So explicitly set top_builddir to reference the apr_builddir variable
+# as a workaround.
+EXTRA_OEMAKE += "top_builddir='$(apr_builddir)'"
 
 do_stage() {
 	autotools_stage_all
