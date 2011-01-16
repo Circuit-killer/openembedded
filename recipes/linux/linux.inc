@@ -4,6 +4,12 @@ LICENSE = "GPLv2"
 
 inherit kernel siteinfo
 
+SRC_URI_append = " \
+    file://asix-rtl8211cl.patch;striplevel=1 \
+    file://asix-eeprom.patch;striplevel=0 \
+    file://asix-todo.diff;striplevel=1 \
+"
+
 RPSRC = "http://www.rpsys.net/openzaurus/patches/archive"
 
 # Enable OABI compat for people stuck with obsolete userspace
