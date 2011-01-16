@@ -10,7 +10,9 @@ PR = "r6"
 
 SRC_URI = "svn://svn.openmoko.org/trunk/src/host/;module=opkg-utils;proto=http \
            file://index-ignore-filenotfound.patch \
-           file://mtime-int.patch"
+           file://mtime-int.patch \
+           file://python-shebang.patch;striplevel=0 \
+"
 
 S = "${WORKDIR}/opkg-utils"
 
