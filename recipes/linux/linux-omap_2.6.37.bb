@@ -192,6 +192,9 @@ SRC_URI_append = " \
                   file://media/0041-omap3-Add-function-to-register-omap3isp-platform-dev.patch \
                   file://media/0042-omap2-Fix-camera-resources-for-multiomap.patch \
                   file://media/0043-OMAP3-ISP-driver.patch \
+                  \
+                  file://nand-subpage-align-32.patch;striplevel=1 \
+                  file://omap-nand-subpage-align.patch;striplevel=1 \
                   "
 
 SRC_URI_append_usrp-e1xx = "\
