@@ -1,0 +1,106 @@
+Asix: Initialise RTL8211CL PHY by writing magic to registers
+
+This is needed for my device to transmit packets. The magic values were taken
+from the Linux driver (v3.5.0) downloaded from http://www.asix.com.tw/.
+Index: linux-2.6.37/drivers/net/usb/asix.c
+===================================================================
+--- linux-2.6.37.orig/drivers/net/usb/asix.c
++++ linux-2.6.37/drivers/net/usb/asix.c
+@@ -44,6 +44,7 @@ static const char driver_name [] = "asix
+ #define AX_CMD_SET_SW_MII		0x06
+ #define AX_CMD_READ_MII_REG		0x07
+ #define AX_CMD_WRITE_MII_REG		0x08
++#define AX_CMD_READ_MII_STATUS		0x09
+ #define AX_CMD_SET_HW_MII		0x0a
+ #define AX_CMD_READ_EEPROM		0x0b
+ #define AX_CMD_WRITE_EEPROM		0x0c
+@@ -164,6 +165,9 @@ static const char driver_name [] = "asix
+ #define MARVELL_CTRL_TXDELAY	0x0002
+ #define MARVELL_CTRL_RXDELAY	0x0080
+ 
++#define PHY_MODE_RTL8211CL	0x000C
++#define RTL8211CL_PAGSEL 0x1F
++
+ /* This structure cannot exceed sizeof(unsigned long [5]) AKA 20 bytes */
+ struct asix_data {
+ 	u8 multi_filter[AX_MCAST_FILTER_SIZE];
+@@ -628,17 +632,25 @@ static int asix_mdio_read(struct net_dev
+ 	return le16_to_cpu(res);
+ }
+ 
++/* Write PHY register when serial management interface is already in software
++control */
++static void
++sw_mdio_write(struct usbnet* dev, int phy_id, int loc, int val)
++{
++	__le16 res = cpu_to_le16(val);
++	asix_write_cmd(dev, AX_CMD_WRITE_MII_REG, phy_id, (__u16)loc, 2, &res);
++}
++
+ static void
+ asix_mdio_write(struct net_device *netdev, int phy_id, int loc, int val)
+ {
+ 	struct usbnet *dev = netdev_priv(netdev);
+-	__le16 res = cpu_to_le16(val);
+ 
+ 	netdev_dbg(dev->net, "asix_mdio_write() phy_id=0x%02x, loc=0x%02x, val=0x%04x\n",
+ 		   phy_id, loc, val);
+ 	mutex_lock(&dev->phy_mutex);
+ 	asix_set_sw_mii(dev);
+-	asix_write_cmd(dev, AX_CMD_WRITE_MII_REG, phy_id, (__u16)loc, 2, &res);
++	sw_mdio_write(dev, phy_id, loc, val);
+ 	asix_set_hw_mii(dev);
+ 	mutex_unlock(&dev->phy_mutex);
+ }
+@@ -1170,6 +1182,23 @@ static int marvell_led_status(struct usb
+ 	return 0;
+ }
+ 
++static void rtl8211cl_init(struct usbnet* dev)
++{
++	/* Keep serial management interface under software control the whole
++	time, since I think this selects a completely different "page" of PHY
++	registers which the Asix chip may not expect. */
++	asix_set_sw_mii(dev);
++	
++	/* Magic numbers taken from Asix Linux driver v3.5.0. They aren't
++	documented in the PHY data sheet I have, however this is necessary
++	for packet transmission to work on my AX88178 + RTL8211CL device. */
++	sw_mdio_write(dev, dev->mii.phy_id, RTL8211CL_PAGSEL, 5);
++	sw_mdio_write(dev, dev->mii.phy_id, 0x0C, 0);
++	sw_mdio_write(dev, dev->mii.phy_id, RTL8211CL_PAGSEL, 0);
++	
++	asix_set_hw_mii(dev);
++}
++
+ static int ax88178_link_reset(struct usbnet *dev)
+ {
+ 	u16 mode;
+@@ -1300,7 +1329,7 @@ static int ax88178_bind(struct usbnet *d
+ 		data->ledmode = 0;
+ 		gpio0 = 1;
+ 	} else {
+-		data->phymode = le16_to_cpu(eeprom) & 7;
++		data->phymode = le16_to_cpu(eeprom) & 0x7F;
+ 		data->ledmode = le16_to_cpu(eeprom) >> 8;
+ 		gpio0 = (le16_to_cpu(eeprom) & 0x80) ? 0 : 1;
+ 	}
+@@ -1348,9 +1377,15 @@ static int ax88178_bind(struct usbnet *d
+ 	phyid = asix_get_phyid(dev);
+ 	dbg("PHYID=0x%08x", phyid);
+ 
+-	if (data->phymode == PHY_MODE_MARVELL) {
+-		marvell_phy_init(dev);
+-		msleep(60);
++	switch (data->phymode) {
++		case PHY_MODE_MARVELL:
++			marvell_phy_init(dev);
++			msleep(60);
++			break;
++			
++		case PHY_MODE_RTL8211CL:
++			rtl8211cl_init(dev);
++			break;
+ 	}
+ 
+ 	asix_mdio_write(dev->net, dev->mii.phy_id, MII_BMCR,

@@ -6,7 +6,7 @@ SRC_URI_append = " file://libdir-la.patch \
                    file://prefix.patch \
                    file://tag.patch \
                    file://install-path-check.patch \
-		   file://nousrlib.patch"
+"
 
 S = "${WORKDIR}/libtool-${PV}"
 

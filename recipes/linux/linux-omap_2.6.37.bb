@@ -198,6 +198,7 @@ SRC_URI_append = " \
                   file://0001-omap3-allow-1GHz-mpurates.patch \
                   file://0001-BeagleBoard-Adjust-USER-button-pin-for-xM.patch \
                   file://0001-omap-mmc-Adjust-dto-to-eliminate-timeout-errors.patch \
+                  file://omap-nand-hack.patch;striplevel=1 \
                  "
 
 SRC_URI_append_usrp-e1xx = "\

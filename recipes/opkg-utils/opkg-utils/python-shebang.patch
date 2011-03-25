@@ -1,0 +1,42 @@
+Run Python via the env command, so OE's version of Python is used
+
+Index: opkg-make-index
+===================================================================
+--- opkg-make-index	(revision 4747)
++++ opkg-make-index	(working copy)
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/env python
+ 
+ import sys, os, posixpath
+ from glob import glob
+Index: opkg-unbuild
+===================================================================
+--- opkg-unbuild	(revision 4747)
++++ opkg-unbuild	(working copy)
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/env python
+ 
+ import sys, os, re
+ 
+Index: opkg-show-deps
+===================================================================
+--- opkg-show-deps	(revision 4747)
++++ opkg-show-deps	(working copy)
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/env python
+ 
+ import sys, os, posixpath
+ from glob import glob
+Index: opkg-list-fields
+===================================================================
+--- opkg-list-fields	(revision 4747)
++++ opkg-list-fields	(working copy)
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/env python
+ 
+ import sys, opkg
+ 

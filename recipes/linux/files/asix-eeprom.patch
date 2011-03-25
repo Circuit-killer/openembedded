@@ -1,0 +1,153 @@
+Asix: Fix EEPROM reading and implement writing
+
++ Fix reading to account for indexing by 16-bit words rather than bytes
++ The AX88178 can index 0x100 words
++ Implement writing to the EEPROM
+Index: drivers/net/usb/asix.c
+===================================================================
+--- drivers/net/usb/asix.c.orig
++++ drivers/net/usb/asix.c
+@@ -149,9 +149,10 @@ static const char driver_name [] = "asix
+ #define AX_GPIO_RESERVED	0x40	/* Reserved */
+ #define AX_GPIO_RSE		0x80	/* Reload serial EEPROM */
+ 
++#define AX_EEPROM_WORD_BYTES	2
+ #define AX_EEPROM_MAGIC		0xdeadbeef
+-#define AX88172_EEPROM_LEN	0x40
+-#define AX88772_EEPROM_LEN	0xff
++#define AX88172_EEPROM_WORDS	0x20
++#define AX88772_EEPROM_WORDS	0x100
+ 
+ #define PHY_MODE_MARVELL	0x0000
+ #define MII_MARVELL_LED_CTRL	0x0018
+@@ -170,11 +171,11 @@ static const char driver_name [] = "asix
+ 
+ /* This structure cannot exceed sizeof(unsigned long [5]) AKA 20 bytes */
+ struct asix_data {
++	u16 eeprom_words;
+ 	u8 multi_filter[AX_MCAST_FILTER_SIZE];
+ 	u8 mac_addr[ETH_ALEN];
+ 	u8 phymode;
+ 	u8 ledmode;
+-	u8 eeprom_len;
+ };
+ 
+ struct ax88172_int_data {
+@@ -722,9 +723,13 @@ static int asix_get_eeprom_len(struct ne
+ 	struct usbnet *dev = netdev_priv(net);
+ 	struct asix_data *data = (struct asix_data *)&dev->data;
+ 
+-	return data->eeprom_len;
++	return data->eeprom_words * AX_EEPROM_WORD_BYTES;
+ }
+ 
++/* EEPROM is addressed by 16-bit words, transmitted in little-endian format.
++Ethtool parameters are for bytes, so the get and set functions have to make
++sure they only address whole words. */
++
+ static int asix_get_eeprom(struct net_device *net,
+ 			      struct ethtool_eeprom *eeprom, u8 *data)
+ {
+@@ -732,23 +737,52 @@ static int asix_get_eeprom(struct net_de
+ 	__le16 *ebuf = (__le16 *)data;
+ 	int i;
+ 
+-	/* Crude hack to ensure that we don't overwrite memory
+-	 * if an odd length is supplied
+-	 */
+-	if (eeprom->len % 2)
++	if (0 != eeprom->offset % AX_EEPROM_WORD_BYTES ||
++	0 != eeprom->len % AX_EEPROM_WORD_BYTES)
+ 		return -EINVAL;
+ 
+ 	eeprom->magic = AX_EEPROM_MAGIC;
+ 
+-	/* ax8817x returns 2 bytes from eeprom on read */
+ 	for (i=0; i < eeprom->len / 2; i++) {
+ 		if (asix_read_cmd(dev, AX_CMD_READ_EEPROM,
+-			eeprom->offset + i, 0, 2, &ebuf[i]) < 0)
++			eeprom->offset / 2 + i, 0, 2, &ebuf[i]) < 0)
+ 			return -EINVAL;
+ 	}
+ 	return 0;
+ }
+ 
++static int asix_set_eeprom(struct net_device *net,
++	struct ethtool_eeprom *eeprom, u8 *data)
++{
++	struct usbnet *dev = netdev_priv(net);
++	__le16 *ebuf = (__le16 *)data;
++	int i;
++	int ret;
++
++	if (0 != eeprom->offset % AX_EEPROM_WORD_BYTES ||
++	0 != eeprom->len % AX_EEPROM_WORD_BYTES)
++		return -EINVAL;
++
++	ret = asix_write_cmd (dev, AX_CMD_WRITE_ENABLE, 0, 0, 0, NULL);
++	if (ret < 0) {
++		goto fail_enable;
++	}
++
++	for (i=0; i < eeprom->len / AX_EEPROM_WORD_BYTES; i++) {
++		ret = asix_write_cmd(dev, AX_CMD_WRITE_EEPROM,
++			eeprom->offset / AX_EEPROM_WORD_BYTES + i,
++			le16_to_cpu(ebuf[i]), 0, NULL);
++		if (ret < 0)
++			goto fail_write;
++	}
++	ret = 0;
++	
++fail_write:
++	asix_write_cmd (dev, AX_CMD_WRITE_DISABLE, 0, 0, 0, NULL);
++fail_enable:
++	return ret;
++}
++
+ static void asix_get_drvinfo (struct net_device *net,
+ 				 struct ethtool_drvinfo *info)
+ {
+@@ -759,7 +793,7 @@ static void asix_get_drvinfo (struct net
+ 	usbnet_get_drvinfo(net, info);
+ 	strncpy (info->driver, driver_name, sizeof info->driver);
+ 	strncpy (info->version, DRIVER_VERSION, sizeof info->version);
+-	info->eedump_len = data->eeprom_len;
++	info->eedump_len = data->eeprom_words * AX_EEPROM_WORD_BYTES;
+ }
+ 
+ static u32 asix_get_link(struct net_device *net)
+@@ -896,7 +930,7 @@ static int ax88172_bind(struct usbnet *d
+ 	unsigned long gpio_bits = dev->driver_info->data;
+ 	struct asix_data *data = (struct asix_data *)&dev->data;
+ 
+-	data->eeprom_len = AX88172_EEPROM_LEN;
++	data->eeprom_words = AX88172_EEPROM_WORDS;
+ 
+ 	usbnet_get_endpoints(dev,intf);
+ 
+@@ -999,7 +1033,7 @@ static int ax88772_bind(struct usbnet *d
+ 	u8 buf[ETH_ALEN];
+ 	u32 phyid;
+ 
+-	data->eeprom_len = AX88772_EEPROM_LEN;
++	data->eeprom_words = AX88772_EEPROM_WORDS;
+ 
+ 	usbnet_get_endpoints(dev,intf);
+ 
+@@ -1119,6 +1153,7 @@ static struct ethtool_ops ax88178_ethtoo
+ 	.set_wol		= asix_set_wol,
+ 	.get_eeprom_len		= asix_get_eeprom_len,
+ 	.get_eeprom		= asix_get_eeprom,
++	.set_eeprom		= asix_set_eeprom,
+ 	.get_settings		= usbnet_get_settings,
+ 	.set_settings		= usbnet_set_settings,
+ 	.nway_reset		= usbnet_nway_reset,
+@@ -1313,6 +1348,8 @@ static int ax88178_bind(struct usbnet *d
+ 	int gpio0 = 0;
+ 	u32 phyid;
+ 
++	data->eeprom_words = 0x100;
++ 
+ 	usbnet_get_endpoints(dev,intf);
+ 
+ 	asix_read_cmd(dev, AX_CMD_READ_GPIOS, 0, 0, 1, &status);
