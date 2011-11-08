@@ -54,9 +54,6 @@ RDEPENDS_task-poky-apps-console = "\
 RDEPENDS_task-poky-x11-base = "\
     pointercal \
     matchbox-wm \
-#    matchbox-keyboard \
-#    matchbox-keyboard-applet \
-#    matchbox-keyboard-im \
     matchbox-keyboard-inputmethod \
     matchbox-panel-2 \
     matchbox-desktop-2 \

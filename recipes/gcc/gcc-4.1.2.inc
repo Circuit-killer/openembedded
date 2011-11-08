@@ -43,9 +43,6 @@ SRC_URI_append_nios2 = " \
 	"
 
 SRC_URI_avr32 = "http://www.angstrom-distribution.org/unstable/sources/gcc-4.1.2-atmel.1.1.0.tar.gz;name=atmel \
-#           file://100-uclibc-conf.patch \
-#           file://200-uclibc-locale.patch \
-#           file://300-libstdc++-pic.patch \
            file://301-missing-execinfo_h.patch \
            file://302-c99-snprintf.patch \
            file://303-c99-complex-ugly-hack.patch \

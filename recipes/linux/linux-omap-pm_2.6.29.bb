@@ -195,7 +195,6 @@ SRC_URI_append_omap3-touchbook = " file://logo_linux_clut224.ppm \
            file://dss2-fix-rotation-offsets.patch \
            file://touchbook-config.patch \
            file://board-omap3touchbook.c \
-#           file://boot-trace-for-optimization.patch \
            file://touchbook-sound.diff \
 "
 

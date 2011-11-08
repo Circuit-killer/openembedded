@@ -12,7 +12,6 @@ APPIMAGE = "${WORKDIR}/supertux.png"
 APPDESKTOP = "${WORKDIR}/supertux.desktop"
 
 SRC_URI = "${SOURCEFORGE_MIRROR}/super-tux/supertux-${PV}.tar.bz2 \
-#           http://ssel.vub.ac.be/Members/DennisWagelaar/download/zaurus/supertux-0.1.2-fp.patch.gz \
 	   file://supertux.png \
 	   file://install-no-overwrite.patch \
 	   file://compilation-fixes.patch \

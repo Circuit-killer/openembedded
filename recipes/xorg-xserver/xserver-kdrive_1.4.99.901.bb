@@ -12,8 +12,6 @@ SRC_URI = "${XORG_MIRROR}/individual/xserver/xorg-server-${PV}.tar.bz2 \
 	${KDRIVE_COMMON_PATCHES} \
 	file://enable-epson.patch \
         file://fix_default_mode.patch \
-#	file://hide-cursor-and-ppm-root.patch \
-#	file://xcalibrate_coords.patch \
 	file://w100.patch \
 	file://w100-autofoo.patch \
 	file://w100-fix-offscreen-bmp.patch \
@@ -21,10 +19,8 @@ SRC_URI = "${XORG_MIRROR}/individual/xserver/xorg-server-${PV}.tar.bz2 \
 	file://linux-keyboard-mediumraw.patch \
 	file://xcalibrate-new-input-world-order.patch \
 	file://tslib-default-device.patch \
-#	file://fbdev-evdev.patch \
 	file://keyboard-resume-workaround.patch \
 	file://xorg-avr32-support.diff \
-#	file://pkgconfig_fix.patch \
 	file://no_xkb.patch;striplevel=0 \
         "
 

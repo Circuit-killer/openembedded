@@ -11,7 +11,6 @@ SRC_URI = "\
   file://fix-dfutool-usb-declaration-mismatch.patch \
   file://sbc-thumb.patch \
   file://bluetooth.conf \
-#  file://hid2hci_usb_init.patch \
 "
 S = "${WORKDIR}/bluez-${PV}"
 

@@ -11,7 +11,6 @@ IMAGE_INSTALL = "task-boot \
             iptables \
             samba swat \
             dnsmasq \
-#            vsftpd \
             angstrom-version \
             ${SPLASH} \
 	   "

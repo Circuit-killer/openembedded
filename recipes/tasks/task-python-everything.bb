@@ -25,7 +25,6 @@ RDEPENDS_${PN} = "\
   python-fugrep \
   python-fuse \
   python-fusil \
-#  python-gammu \
   python-gmpy \
   python-gnosis	\
   python-gst \
@@ -45,8 +44,6 @@ RDEPENDS_${PN} = "\
   python-ogg \
   python-opendir \
   python-pexpect \
-# only on x86
-#  python-psyco \
   python-ptrace \
   python-pyalsa \
   python-pyalsaaudio \

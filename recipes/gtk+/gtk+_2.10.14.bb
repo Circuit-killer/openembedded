@@ -12,7 +12,6 @@ SRC_URI = "ftp://ftp.gtk.org/pub/gtk/v2.10/gtk+-${PV}.tar.bz2 \
            file://scroll-timings.patch \
            file://small-gtkfilesel.patch \
            file://small-gtkfilechooser.patch \
-#           file://migration.patch;striplevel=0 \
            file://run-iconcache.patch \
            file://hardcoded_libtool.patch \
            file://no-demos.patch \

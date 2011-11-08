@@ -22,19 +22,6 @@ RDEPENDS_${PN} = "\
   fsoaudiod \
   \
   fso-apm \
-#  connman \
-#  connman-scripts \
-#  connman-plugin-bluetooth \
-#  connman-plugin-dhclient \
-#  connman-plugin-dnsproxy \
-#  connman-plugin-ethernet \
-#  connman-plugin-fake \
-#  connman-plugin-loopback \
-#  connman-plugin-pppd \
-#  connman-plugin-resolvconf \
-#  connman-plugin-udhcp \
-#  connman-plugin-wifi \
-#  connman-test-utils \
 "
 
 RRECOMMENDS_${PN} = "\

@@ -351,7 +351,6 @@ PACKAGES_LIST = "\
 	mpd \
 	memtester \
 	puppy \
-
 	ctrlproxy \
 	dsniff \    
 	iperf \
@@ -377,7 +376,6 @@ PACKAGES_LIST = "\
 	rng-tools \
 	postfix \
 	yp-tools ypbind ypserv \
- 
 "
 
 
@@ -386,7 +384,6 @@ PACKAGES_LIST = "\
 OPLINUX_BROKEN_PACKAGES = "irssi \
 	unionfs-modules \
 	unionfs-utils \
-
 "
 
 #Here we define the packages that are broken on a specific architecture
@@ -550,7 +547,6 @@ OPLINUX_BROKEN_PACKAGES_ARCH_POWERPC = " \
         spandsp \
         texinfo \
 	vsftpd \
-
 	libpam \
         aircrack \
         appweb \
@@ -606,14 +602,6 @@ OPLINUX_UCLIBC_UNSUPPORTABLE_PACKAGES = "\
 
 # These packages work with glibc, but break on uclibc.
 OPLINUX_UCLIBC_BROKEN_PACKAGES = "\
-#	bwmon \
-#	erlang \
-#	apr \
-#	bogofilter \
-#	boost \
-#	linphone \
-#	sudo \
-#	ushare \
 	"
 
 OPLINUX_UCLIBC_BROKEN_PACKAGES_append_x86 = "\
@@ -637,7 +625,6 @@ OPLINUX_UCLIBC_BROKEN_PACKAGES_append_dht-walnut = "\
 OPLINUX_BROKEN_PACKAGES_append_uclibc-linux = "\
 	${OPLINUX_UCLIBC_UNSUPPORTABLE_PACKAGES} \
 	${OPLINUX_UCLIBC_BROKEN_PACKAGES} \
-
 "
 
 #

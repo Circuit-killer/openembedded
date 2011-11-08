@@ -35,7 +35,6 @@ EXTRA_OECONF = "--enable-composite --enable-kdrive \
 		--with-default-font-path=built-ins \
                 --enable-tslib --enable-xcalibrate \
                 --enable-nomadik \
-# --enable-glx \
 		--enable-xegl \
                 --with-kernel-headers-path=${STAGING_KERNEL_DIR} \
 		ac_cv_file__usr_share_X11_sgml_defs_ent=no"

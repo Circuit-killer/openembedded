@@ -21,7 +21,6 @@ IMAGE_INSTALL = "task-base-extended \
 	mtd-utils \
 	${@base_contains("MACHINE_FEATURES", "screen", "psplash-zap", "",d)} \
 	${IMAGE_EXTRA_INSTALL} \
-#	nbench-byte \
 	"
 
 IMAGE_LINGUAS = ""

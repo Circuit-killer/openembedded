@@ -10,7 +10,6 @@ ANGSTROM_EXTRA_INSTALL += " \
 	madplay \
 	mplayer \
 	mtd-utils \
-#	nbench-byte \
 	owl-wifi \
 	thttpd \
 	usbview \

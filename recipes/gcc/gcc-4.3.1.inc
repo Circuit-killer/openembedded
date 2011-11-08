@@ -43,7 +43,6 @@ SRC_URI = "${GNU_MIRROR}/gcc/gcc-${PV}/gcc-${PV}.tar.bz2;name=archive \
 	file://305-libmudflap-susv3-legacy.patch \
 	file://306-libstdc++-namespace.patch \
 	file://307-locale_facets.patch \
-#	file://402-libbackend_dep_gcov-iov.h.patch \
 	file://602-sdk-libstdc++-includes.patch \
 	file://740-sh-pr24836.patch \
 	file://800-arm-bigendian.patch \
@@ -56,8 +55,6 @@ SRC_URI = "${GNU_MIRROR}/gcc/gcc-${PV}/gcc-${PV}.tar.bz2;name=archive \
 	file://cache-amnesia.patch \
 	file://gfortran-4.3.x.patch \
 	file://gcc-4.0.2-e300c2c3.patch \
-#	file://pr34130.patch \
-#	file://fortran-static-linking.patch \
 	file://gcc-arm-frename-registers.patch \
 	file://gcc-release-branch/PR-36500-fix-neon.patch \
 	file://gcc-4.3.1-SYSROOT_CFLAGS_FOR_TARGET.patch \

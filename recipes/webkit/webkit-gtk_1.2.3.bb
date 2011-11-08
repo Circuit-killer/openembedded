@@ -17,7 +17,6 @@ EXTRA_OECONF = "\
                 --enable-svg \
                 --enable-icon-database=yes \
                 --enable-geolocation=yes \
-#                --with-unicode-backend=glib \
 "
 
 EXTRA_AUTORECONF = " -I autotools "

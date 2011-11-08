@@ -8,7 +8,6 @@ PR = "r5"
 PV = "0.0+git5b42aeff36d930dc3a9b75eedc74dacfec45f43f"
 
 SRC_URI = "http://linux-h4000.sourceforge.net/mirror/mk-layouts-gui.git_5b42aeff36d930dc3a9b75eedc74dacfec45f43f.tar.gz \
-#git://ossfans.org/home/slapin/git/mk-layouts-gui.git;protocol=git;tag=5b42aeff36d930dc3a9b75eedc74dacfec45f43f \
            file://auto-mkdir.patch \
 	   file://sanitize-desktop-file.patch \
 	   file://mboxkbd-layouts-gui.png"

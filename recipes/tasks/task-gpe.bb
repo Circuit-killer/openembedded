@@ -131,7 +131,6 @@ RDEPENDS_gpe-task-sectest = "\
     ettercap-ng \
     stunnel \
     curl \
-#    dsniff \
     prismstumbler \
     tcpdump \
     kismet \

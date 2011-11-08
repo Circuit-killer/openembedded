@@ -42,11 +42,6 @@ SUBDIRS="qtcompat libical/src/libical libical/src/libicalss microkde libkcal lib
         kabc/formats/binary kabc/plugins/qtopia \
         gammu/emb/common \
         gammu/emb/gammu \
-#        pwmanager/libcrypt/mpi  \
-#        pwmanager/libcrypt/error  \
-#        pwmanager/libcrypt/cipher  \
-#        pwmanager/libcrypt/zlib \
-#        pwmanager/pwmanager \
         "
 
 inherit palmtop

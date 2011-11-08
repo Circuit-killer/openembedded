@@ -10,7 +10,6 @@ IMAGE_INSTALL += "task-boot \
 	    task-internetserver \
 	    task-mediaserver \
 	    task-importmedia \
-# stuff below needs a proper task
 	    dropbear \
 	    xinetd \
             util-linux-ng-mount util-linux-ng-umount \

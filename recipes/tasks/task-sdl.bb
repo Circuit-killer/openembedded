@@ -8,7 +8,6 @@ PACKAGES = "\
   task-sdl-libs \
   task-sdl-games \
   task-sdl-emulators \
-#  task-sdl-misc \
 "
 
 # no need to add libsdl as all libsdl-* already rdepend on it

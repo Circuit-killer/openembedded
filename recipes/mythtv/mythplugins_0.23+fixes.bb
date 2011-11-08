@@ -98,7 +98,6 @@ pkg_postinst_mythweb-lighttpd () {
 }
 
 PACKAGES =+ " \
-#        mythweb-apache \
 	mythweb-lighttpd \
         mytharchive mytharchive-dbg \
         mythbrowser mythbrowser-dbg \

@@ -42,8 +42,6 @@ EXTRA_OECONF="--enable-gui=gtk \
                 --with-top-level=${STAGING_DIR_HOST}/usr \
                 --disable-ltdl-install \
                 --without-included-ltdl \
-#  --with-ltdl-include=${STAGING_INCDIR} \
-#  --with-ltdl-lib=${STAGING_LIBDIR} \
 "
 
 # the test for error_t is wrong for uclibc, needs _GNU_SOURCE for correct

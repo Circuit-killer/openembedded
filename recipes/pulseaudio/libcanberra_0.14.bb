@@ -19,7 +19,6 @@ EXTRA_OECONF = "\
   --enable-multi \
   --enable-null \
   --disable-oss \
-# enable pulse again when pulseaudio >= 0.9.11 is the default in OE
   --disable-pulse \
   --disable-tdb \
 "

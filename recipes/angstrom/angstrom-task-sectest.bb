@@ -9,11 +9,7 @@ RDEPENDS_${PN} = "\
     ettercap-ng \
     stunnel \
     curl \
-#    dsniff \
     prismstumbler \
-#    tcpdump \
     kismet \
     hydra \
-#    thcrut \
-#    driftnet \
     miniclipboard"

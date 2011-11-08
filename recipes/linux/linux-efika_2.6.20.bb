@@ -39,7 +39,6 @@ SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-${PV}.tar.bz2 \
            file://0032-POWERPC-EFIKA-Adds-missing-interrupts-from-bestcomm-node.txt;p=1;apply=yes \
            file://0033-EFIKA-fullduplex-prpl_aln.txt;p=1;apply=yes \
            file://v4l.diff;p=1 \
-
            file://defconfig \
 		   "
 

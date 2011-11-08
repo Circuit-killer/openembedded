@@ -11,13 +11,9 @@ S = "${WORKDIR}/gutenprint-${PV}"
 EXTRA_OECONF = "\
 		--disable-nls \
 		 --disable-gtktest \
-#		--enable-cups-ppds \
-# this option is disabled here, since the ppds are generated during native build
 		 --disable-libgutenprintui \
 		 --disable-libgutenprintui2 \
 		--disable-translated-cups-ppds \
-#		--with-ghostscript \
-# i MAY have to disable this one as well, since these are probably built in native as well
 		--enable-cups-level3-ppds \
 		 --disable-gimptest \
 		--enable-test \

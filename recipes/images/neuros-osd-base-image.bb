@@ -23,7 +23,6 @@ IMAGE_INSTALL = "task-boot \
                  qt4-embedded dbus \
                  neuros-mainmenu \
                  neuros-nwm \
-#                 vlc-davinci \
                 "
 
 IMAGE_LINGUAS = ""

@@ -27,14 +27,9 @@ python () {
 }
 
 EXTRA_OECMAKE=" \
-# Override default "doc" (this is relative to ${prefix})
     -DCMAKE_DOC_DIR=${docdir_stripped}/cmake-2.8 \
-# Using system libs spares us some cmake cross trouble.
     -DCMAKE_USE_SYSTEM_LIBRARIES=1 \
-# This is compiler & target dependant, but it seems cmake does not in fact use this value.
     -DKWSYS_CHAR_IS_SIGNED=1 \
-# This disables large file support. Hopefully nobody processes >2G files on the target.
-# If you want to enable this, add -DWKSYS_LFS_WORKS=1
     -DKWSYS_LFS_DISABLE=1 \
 "
 

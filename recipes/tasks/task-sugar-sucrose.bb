@@ -6,5 +6,4 @@ inherit task
 
 RDEPENDS_${PN} = "\
         sugar \
-#        sugar-fructose \
 "

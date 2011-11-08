@@ -12,5 +12,4 @@ PACKAGES = "${PN}"
 
 RDEPENDS_${PN} = "\
     task-arago-toolchain-target \
-#    kernel-source \
     "

@@ -6,8 +6,6 @@ LICENSE = "CCSA"
 SRC_URI = "\
   http://dmalloc.com/releases/dmalloc-${PV}.tgz \
   file://configure-pagesize-HACK.patch \
-# HACK we ship a preconfigured conf.h since otherwise it misses a whole lot of stuff and compilation fails.
-# TODO find out why and get rid of it
   file://conf.h \
 "
 inherit autotools pkgconfig

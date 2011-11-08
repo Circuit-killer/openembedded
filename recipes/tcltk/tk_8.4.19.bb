@@ -9,7 +9,6 @@ SRC_URI = "\
   ${SOURCEFORGE_MIRROR}/tcl/tk${PV}-src.tar.gz \
   file://disable-xim.patch;apply=false \
   file://tk-add-soname.patch;striplevel=2 \
-#  file://fix-configure.patch;striplevel=2 \
 "
 S = "${WORKDIR}/tk${PV}/unix"
 

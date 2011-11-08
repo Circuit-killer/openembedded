@@ -33,15 +33,12 @@ SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-2.6.26.tar.bz2;name=k
            ${RPSRC}/sharpsl_pm_fixes1-r0.patch;name=rppatch8 \
            ${RPSRC}/pm_changes-r1.patch;name=rppatch9 \
            ${RPSRC}/locomo_kbd_tweak-r2.patch;name=rppatch10 \
-#           ${RPSRC}/pxa27x_overlay-r8.patch;name=rppatch11 \
            ${RPSRC}/w100_extaccel-r2.patch;name=rppatch12 \
            ${RPSRC}/w100_extmem-r1.patch;name=rppatch13 \
-#           ${RPSRC}/poodle_pm-r6.patch;name=rppatch14 \
            file://poodle_pm-r7.patch;name=rppatch14 \
            ${RPSRC}/poodle_lcd_hack-r0.patch;name=rppatch15 \
            ${RPSRC}/poodle_asoc_fix-r1.patch;name=rppatch16 \
            file://zaurus-i2c-init.patch;status=upstream \
-#           ${RPSRC}/logo_oh-r1.patch.bz2;status=unmergable;name=rppatch17 \
            ${RPSRC}/pxa-linking-bug.patch;status=unmergable;name=rppatch18 \
            file://hostap-monitor-mode.patch;status=unmergable \
            file://serial-add-support-for-non-standard-xtals-to-16c950-driver.patch;status=unmergable \
@@ -92,8 +89,6 @@ SRC_URI_append_collie = "\
 
 SRC_URI_append_poodle = "\
            file://poodle_serial_vcc-r1.patch \
-#           file://poodle_ts.patch \
-#           file://pxafb.patch \
 "
 
 SRC_URI_append_tosa = "\

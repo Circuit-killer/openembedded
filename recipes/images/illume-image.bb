@@ -25,11 +25,6 @@ BASE_INSTALL = "\
   module-init-tools-depmod \
   pointercal \
   tslib-conf \
-#  prelink \
-#  rsync \
-#  screen \
-#  fbset \
-#  fbset-modes \
 "
 
 # Some machines don't set a *runtime* provider for X, so default to Xfbdev here
@@ -102,7 +97,6 @@ AUDIO_INSTALL = "\
   ${@base_conditional('ENTERPRISE_DISTRO', '1', '', 'gst-plugin-mad', d)} \
   gst-plugin-modplug \
   gst-plugin-sid \
-#  fso-sounds \
 "
 
 GTK_INSTALL = "\
@@ -129,9 +123,6 @@ GLES_INSTALL_append_zylonite     = "libgles-zylonite"
 
 # python
 PYTHON_INSTALL = "\
-#  task-python-efl \
-#  python-codecs \
-#  python-gst \
 "
 
 # zhone
@@ -144,7 +135,6 @@ ZHONE_INSTALL = "\
 
 # additional apps
 APPS_INSTALL = "\
-#   elementary-alarm \
    expedite \
    expedite-themes \
 "
@@ -157,7 +147,6 @@ IMAGE_INSTALL = "\
   ${AUDIO_INSTALL} \
   ${TOOLS_INSTALL} \
   ${PYTHON_INSTALL} \
-#  ${ZHONE_INSTALL} \
   ${APPS_INSTALL} \
   ${DEV_INSTALL} \
   ${SPLASH} \

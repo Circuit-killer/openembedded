@@ -16,7 +16,6 @@ inherit autotools update-rc.d
 
 EXTRA_OECONF = " --with-pth=yes --without-pth-test --without-mysql --without-log4cpp \
                  --disable-nls --disable-static \
-#                 --with-mysql=${STAGING_BINDIR_CROSS} \
                  --enable-smtp --with-lua"
 
 do_install_prepend() {

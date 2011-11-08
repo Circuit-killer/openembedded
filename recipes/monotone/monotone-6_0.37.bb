@@ -29,7 +29,6 @@ PR = "r1"
 
 SRC_URI = "http://monotone.ca/downloads/${PV}/monotone-${PV}.tar.gz \
            file://txt2c-cross-post-0.22.patch \
-#	   file://uclibc.database.hh.stdarg.patch \
 	   file://configure.ac-no-sync-with-stdio-0.31.patch \
 	  "
 do_compile_append() {

@@ -99,7 +99,6 @@ SRC_URI_append_collie = "\
            ${DOSRC}/collie/ucb1x00-touch-audio-r0.patch;name=dopatch4 \
            file://collie-mcp-r1.patch \
            ${DOSRC}/collie/sa1100-udc-r0.patch;name=dopatch5 \
-#          ${DOSRC}/collie/collie-pm-r1.patch;name=dopatch6 \
 "
 
 SRC_URI_append_poodle = "\

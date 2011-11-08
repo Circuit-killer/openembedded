@@ -23,7 +23,6 @@ RDEPENDS_task-fonts-truetype-core = "\
   \
   ttf-dejavu-common \
   ttf-dejavu-sans \
-#  ttf-dejavu-serif \
   ttf-dejavu-sans-mono \
 "
 

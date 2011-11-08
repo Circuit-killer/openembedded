@@ -21,15 +21,10 @@ EXTRA_OECONF += "\
   --disable-huawei \
   --disable-hso \
   --enable-ppp \
-# needs udev >= 129
   --disable-udev \
   --disable-polkit \
   --enable-client \
   --enable-fake \
-#  --with-udhcpc=PROGRAM \
-#  --with-dhclient=PROGRAM \
-#  --with-resolvconf=PROGRAM \
-#  --with-pppd=PROGRAM \
 "
 
 SRC_URI  = "\

@@ -33,8 +33,6 @@ RDEPENDS_${PN}-network = "\
                   iperf \
 		  connman \
 		  connman-plugin-wifi \
-#		  connman-plugin-ofono \
-#		  connman-plugin-ethernet \
 "
 
 RDEPENDS_${PN}-x11-debug = "\

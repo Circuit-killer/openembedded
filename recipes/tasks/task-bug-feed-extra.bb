@@ -17,7 +17,6 @@ DEPENDS = "\
 	jamvm \
 	cacao \
 	usb-modeswitch \
-#	com.buglabs.bug.jni.bluecove \
 	"
 
 PR = "r11"

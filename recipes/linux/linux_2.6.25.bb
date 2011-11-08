@@ -37,7 +37,6 @@ SRC_URI_append_cm-x270 = " \
 SRC_URI_append_at32stk1000 = " \
 	http://avr32linux.org/twiki/pub/Main/LinuxPatches/linux-2.6.25.6.atmel.1.patch.bz2;name=atmelpatch \
 	file://virtualmouse.patch \
-#    file://pll1.diff \
 "
 
 SRC_URI_append_at91-l9260 = " \

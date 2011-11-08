@@ -27,7 +27,6 @@ RDEPENDS_${PN} = "\
     gimp \
     powertop oprofile \
     pidgin \
-#    irssi \
     mplayer \
     gnome-games \
     stalonetray \

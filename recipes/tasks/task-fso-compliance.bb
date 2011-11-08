@@ -9,19 +9,9 @@ inherit task
 RDEPENDS_${PN} = "\
   dbus-hlid \
   frameworkd \
-#  fso-apmd \
   fso-gpsd \
-#  fso-monitord \
   connman \
   connman-scripts \
-#  connman-plugin-bluetooth \
-#  connman-plugin-dhclient \
-#  connman-plugin-dnsproxy \
-#  connman-plugin-ethernet \
-#  connman-plugin-fake \
-#  connman-plugin-loopback \
-#  connman-plugin-pppd \
-#  connman-plugin-resolvconf \
   connman-plugin-udhcp \
   connman-plugin-wifi \
 "

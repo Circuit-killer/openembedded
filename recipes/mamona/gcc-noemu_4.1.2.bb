@@ -47,9 +47,6 @@ SRC_URI = "ftp://ftp.gnu.org/pub/gnu/gcc/gcc-4.1.2/gcc-4.1.2.tar.bz2 \
 SRC_URI_append_sh3  = " file://sh3-installfix-fixheaders.patch "
 
 SRC_URI_avr32 = "http://www.angstrom-distribution.org/unstable/sources/gcc-4.1.2-atmel.1.1.0.tar.gz \
-#           file://100-uclibc-conf.patch \
-#           file://200-uclibc-locale.patch \
-#           file://300-libstdc++-pic.patch \
            file://301-missing-execinfo_h.patch \
            file://302-c99-snprintf.patch \
            file://303-c99-complex-ugly-hack.patch \

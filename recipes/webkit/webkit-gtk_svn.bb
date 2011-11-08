@@ -35,7 +35,6 @@ EXTRA_OECONF = "\
                 --enable-icon-database=yes \
                 --enable-geolocation=yes \
                 --enable-link-prefetch \
-#                --with-unicode-backend=glib \
 "
 
 EXTRA_AUTORECONF = " -I autotools "

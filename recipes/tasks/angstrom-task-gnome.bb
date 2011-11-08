@@ -71,7 +71,6 @@ RDEPENDS_task-gnome = " \
   gnome-media \
   gnome-menus \
   gnome-mime-data \
-#  gnome-packagekit packagekit packagekit-gtkmodule \
   gnome-panel libpanel-applet libgweather-locationdata \
   gnome-power-manager gnome-power-manager-applets \
   gnome-python gnome-python-extras \
@@ -132,10 +131,8 @@ RDEPENDS_task-gnome-perl = " \
 RDEPENDS_task-gnome-cups = " \
   cups \
   cups-backend-hal \
-#  cups-gs \
   gnome-cups-manager \
   gtk-printbackend-cups \
-#  gutenprint \
   hal-cups-utils \
  "
 

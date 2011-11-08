@@ -57,7 +57,6 @@ SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-2.6.24.tar.bz2;name=k
            file://sharpsl-rc-r1.patch \
            file://sharpsl-rc-r2.patch \
            file://squashfs3.3.patch;status=external \
-#           ${RPSRC}/logo_oh-r1.patch.bz2;status=unmergable;name=rppatch17 \
            ${RPSRC}/pxa-linking-bug.patch;status=unmergable;name=rppatch18 \
            file://hostap-monitor-mode.patch;status=unmergable \
            file://serial-add-support-for-non-standard-xtals-to-16c950-driver.patch;status=unmergable \

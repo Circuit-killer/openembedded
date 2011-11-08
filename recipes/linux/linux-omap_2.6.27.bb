@@ -32,11 +32,6 @@ SRC_URI_append = " \
            file://dvb-fix-dma.diff \
            file://0001-Removed-resolution-check-that-prevents-scaling-when.patch \
            file://0001-Implement-downsampling-with-debugs.patch \
-#           file://openvz/0001-arm-introduce-MAP_EXECPRIO-define.patch \
-#           file://openvz/0002-arm-export-arm-version-of-show_mem.patch \
-#           file://openvz/0003-arm-wire-OpenVZ-syscalls.patch \
-#           file://openvz/0004-arm-add-openvz-and-bc-Kconfigs.patch \
-#           file://openvz/openvz-2.6.27.diff \
            file://sitecomwl168-support.diff \
            file://nand.patch \
            file://musb-rxtx.patch \

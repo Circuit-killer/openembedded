@@ -53,8 +53,6 @@ SRC_URI = "${GNU_MIRROR}/gcc/gcc-${PV}/gcc-${PV}.tar.bz2;name=archive \
 	file://cache-amnesia.patch \
 	file://gfortran-4.3.x.patch \
 	file://gcc-4.0.2-e300c2c3.patch \
-#	file://pr34130.patch \
-#	file://fortran-static-linking.patch \
 	file://gcc-arm-frename-registers.patch \
 	file://gcc-4.3.4-SYSROOT_CFLAGS_FOR_TARGET.patch \
 	file://gcc-4.3.1-ARCH_FLAGS_FOR_TARGET.patch \

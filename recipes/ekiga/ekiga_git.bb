@@ -21,7 +21,6 @@ DEPENDS += " boost avahi libnotify eds-dbus libgnome gtkmm libsigc++-2.0 gstream
 RDEPENDS_${PN} += "gst-plugin-app gst-plugin-video4linux2 opal ptlib"
 
 EXTRA_OECONF = " \
-#  --enable-static-libs \
   --disable-ldap \
   --disable-gnome \
   --enable-gstreamer \

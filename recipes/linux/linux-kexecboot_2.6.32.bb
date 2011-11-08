@@ -41,7 +41,6 @@ file://madc/0010-ARM-OMAP-Add-twl4030-madc-support-to-Overo.patch \
 file://madc/0011-ARM-OMAP-Add-twl4030-madc-support-to-Beagle.patch \
 file://madc/0013-ARM-OMAP-Add-missing-twl4030-madc-header-file.patch \
 file://dss2/0012-OMAP-DSS2-Add-support-for-LG-Philips-LB035Q02-pane.patch \
-#file://dss2/0014-OMAP-DSS-Add-DSS2-support-for-Overo.patch \
 file://dss2/0015-OMAP-DSS-Add-DSS2-support-for-Beagle.patch \
 file://dss2/0016-video-add-timings-for-hd720.patch \
 "

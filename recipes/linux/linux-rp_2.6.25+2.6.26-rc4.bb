@@ -30,7 +30,6 @@ SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-2.6.25.tar.bz2;name=k
            ${RPSRC}/sharpsl_pm_fixes1-r0.patch;name=rppatch8 \
            ${RPSRC}/pm_changes-r1.patch;name=rppatch9 \
            ${RPSRC}/locomo_kbd_tweak-r2.patch;name=rppatch10 \
-#           ${RPSRC}/pxa27x_overlay-r8.patch;name=rppatch11 \
            ${RPSRC}/w100_extaccel-r2.patch;name=rppatch12 \
            ${RPSRC}/w100_extmem-r1.patch;name=rppatch13 \
            ${RPSRC}/poodle_pm-r6.patch;name=rppatch14 \
@@ -95,7 +94,6 @@ SRC_URI_append_collie = "\
         ${TKSRC}/sa1100_spinlock.patch;name=tkpatch14 \
         ${TKSRC}/sa1100-dma.patch;name=tkpatch15 \
 	${TKSRC}/sa1100_udc_g_ether-2.patch;name=tkpatch16 \
-
 "
 
 SRC_URI_append_poodle = "\

@@ -5,7 +5,6 @@ SECTION = "inputmethods"
 
 EXTRA_OECONF += "--disable-applet \
                  --disable-emacs \
-#                 --without-qt \
                  --without-scim \
                  --without-m17nlib \
                  --without-prime \

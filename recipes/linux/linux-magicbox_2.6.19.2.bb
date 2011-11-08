@@ -49,7 +49,6 @@ SRC_URI = "${KERNELORG_MIRROR}/pub/linux/kernel/v2.6/linux-${PV}.tar.bz2 \
           file://001-magicbox_support.patch \
           file://002-flash_map.patch \
           file://100-cf_slot.patch \
-
           file://config-magicbox2\
 "
 

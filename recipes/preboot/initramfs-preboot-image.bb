@@ -29,8 +29,6 @@ IMAGE_INSTALL = " \
 	fbset \
 	fbset-init \
     msmcommd \
-#	lvm2 \
-#	preboot \
 	"
 
 IMAGE_LINGUAS = ""

@@ -25,7 +25,6 @@ SRC_URI="http://software-dl.ti.com/dsps/dsps_public_sw/codecs/C64XPlus_Video//C6
     http://software-dl.ti.com/dsps/dsps_public_sw/codecs/C64XPlus_Audio//C64XPlus_Audio_latest/c64xplus_aachedec_01_30_03_00_production.bin;name=aachedec \
     http://software-dl.ti.com/dsps/dsps_public_sw/codecs/C64XPlus_Speech//C64XPlus_Speech_latest/c64xplus_g711_1_12_00_000_production.bin;name=g711 \
     git://arago-project.org/git/projects/codec-servers.git;protocol=git \
-
 "
 
 SRC_URI[h264enc.md5sum] = "54f914b9c49b9ed811980382b2002542"

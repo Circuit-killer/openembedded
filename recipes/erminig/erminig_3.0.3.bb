@@ -13,7 +13,6 @@ inherit distutils
 RDEPENDS_${PN} = "\
   python-pygtk \
   python-pysqlite2 \
-
 "
 FILES_${PN} = "${datadir}"
 

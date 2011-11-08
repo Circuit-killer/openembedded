@@ -24,7 +24,6 @@ FILES_${PN} = "${base_libdir}/klibc-*.so"
 FILES_${PN}-dev = "${base_libdir}/klibc.so \
                    ${base_libdir}/klibc/lib/* \
                    ${base_libdir}/klibc/include/* \
-#                   ${base_bindir}/klcc \
                   "
 
 # Yes we want exactly the klibc that was compiled with the utils

@@ -45,8 +45,6 @@ IMAGE_INSTALL += "\
 	tslib-tests \
 	libstdc++ \
 	${IMAGE_EXTRA_INSTALL} \
-#	nbench-byte \
-#	pointercal \
 	"
 
 # IMAGE_LINGUAS += " se no dk fi"
